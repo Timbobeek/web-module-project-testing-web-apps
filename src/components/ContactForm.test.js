@@ -10,7 +10,18 @@ test('renders without errors', ()=>{
 });
 
 test('renders the contact form header', ()=> {
-    
+  // the header h1 element exists. Include three asserts,
+  //  if the header is in the document, 
+  //  if the header is truthy, 
+  //  if the header has the correct test content.
+
+  // use arrange act assert method!!!
+  render(<ContactForm/>);
+  const header = screen.queryByText('Contact Form');
+  //console.log(header);
+  expect(header).toBeInTheDocument();
+  expect(header).toBeTruthy();
+  expect(header).toBe('Contact Form');
 });
 
 test('renders ONE error message if user enters less then 5 characters into firstname.', async () => {
